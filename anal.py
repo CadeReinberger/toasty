@@ -73,6 +73,9 @@ writers = pd.ExcelFile(SOURCE_FILE).sheet_names
 def read_writer(writer):
     df = pd.read_excel(SOURCE_FILE, writer)
     res = {}
+
+    #strip any spaces so that an extraneous space on an entry doesn't make a new player in the stats
+    df['Answerer'] = df['Answerer'].str.strip()
     
     #get number of questions
     qs = []
