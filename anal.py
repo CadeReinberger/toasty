@@ -76,6 +76,8 @@ def read_writer(writer):
 
     #strip any spaces so that an extraneous space on an entry doesn't make a new player in the stats
     df['Answerer'] = df['Answerer'].str.strip()
+    #make all answerer names title case so typos in capitalization don't make a new player in the stats
+    df['Answerer'] = df['Answerer'].str.title()
     
     #get number of questions
     qs = []
